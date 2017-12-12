@@ -8,7 +8,7 @@ from sqlalchemy.orm import mapper
 import csv
 
 
-dump_database = "static/newdata92.db"
+dump_database = "static/database92.db"
 
 engine = create_engine('sqlite:///{}'.format(dump_database), echo=False)
 Base = declarative_base()
@@ -203,7 +203,7 @@ class Population92(Base):
      
     
 class Logement92(Base):
-    __tablename__ = 'static/logement92'
+    __tablename__ = 'logement92'
     insee_code = Column(String, primary_key=True)
     city = Column(String)
     housing = Column(Integer)
