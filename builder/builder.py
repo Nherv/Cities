@@ -26,7 +26,7 @@ def load_session():
     return session
 
 
-def build_db_data92():
+def build_db():
     """Retrieves data from the source_database and scraping function.
     Creates rows in the table
     """
