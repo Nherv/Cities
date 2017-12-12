@@ -243,7 +243,7 @@ class Entreprise92(Base):
         self.comp_construction = comp_construction
        
 
-class Activité92(Base):
+class Activite92(Base):
     __tablename__ = 'activité92'
     insee_code = Column(String, primary_key=True)
     city = Column(String)
