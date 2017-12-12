@@ -113,7 +113,7 @@ def build_db():
     outfile.close()
     
 
-    outfile = open(l'satic/logement92.csv', 'r'')
+    outfile = open('static/logement92.csv', 'r'')
     reader = csv.DictReader(outfile, delimiter=';')
     for line in reader:
         print(line['Code'])
