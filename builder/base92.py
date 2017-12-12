@@ -1,4 +1,3 @@
-
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, String, Date, Float
@@ -104,6 +103,7 @@ class Data92(Base):
                 nb_etudiants,
                 nb_entr_service,
                 nb_entr_commerce,
+                nb_entr_construction,
                 nb_entr_industrie,
                 nb_crea_entr,
                 nb_crea_industrie,
@@ -268,7 +268,6 @@ class Activite92(Base):
         self.portion_craft = portion_craft
         self.portion_executive = portion_executive
         self.portion_worker = portion_worker
-        
+       
         
 Base.metadata.create_all(engine)
-
