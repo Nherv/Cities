@@ -272,5 +272,3 @@ class Activite92(Base):
         
 Base.metadata.create_all(engine)
 
-
-build_db()
