@@ -181,15 +181,104 @@ class Data92(Base):
         self.score_croissance_pop = score_croissance_pop
         self.score_croissance_entr = score_croissance_entr
         
+
+class Population92(Base):
+    __tablename__ = 'population92'
+    insee_code = Column(String, primary_key=True)
+    city = Column(String)
+    pop_evo = Column(Float)
+    population = Column(Integer)
+    pop_25 = Column(Float)
+    pop_25_64 = Column(Float)
+    pop_65 = Column(Float)
+
+    def __init__(self, insee_code, city, pop_evo, population, pop_25, pop_25_64, pop_65):
+        self.insee_code = insee_code
+        self.city = city
+        self.population = population
+        self.pop_25 = pop_25
+        self.pop_25_64 = pop_25_64
+        self.pop_65 = pop_65
+        self.pop_evo = pop_evo
+     
+    
+class Logement92(Base):
+    __tablename__ = 'static/logement92'
+    insee_code = Column(String, primary_key=True)
+    city = Column(String)
+    housing = Column(Integer)
+    main_res = Column(Integer)
+    portion_hlm_tenant = Column(Float)
+    social_housing = Column(Integer)
+
+    def __init__(self, insee_code, city, housing, main_res, portion_hlm_tenant, social_housing):
+        self.insee_code = insee_code
+        self.city = city
+        self.housing = housing
+        self.main_res = main_res
+        self.portion_hlm_tenant = portion_hlm_tenant
+        self.social_housing = social_housing
+        
+        
+class Entreprise92(Base):
+    __tablename__ = 'entreprise92'
+    insee_code = Column(String, primary_key=True)
+    city = Column(String)
+    companies = Column(Integer)
+    comp_creation = Column(Integer)
+    comp_industry = Column(Integer)
+    comp_service = Column(Integer)
+    comp_sale = Column(Integer)
+    comp_construction = Column(Integer)
+    
+
+    def __init__(self, insee_code, city, companies, comp_creation, comp_industry, comp_service, comp_sale, comp_construction):
+        self.insee_code = insee_code
+        self.city = city
+        self.companies = companies
+        self.comp_creation = comp_creation
+        self.comp_industry = comp_industry
+        self.comp_service = comp_service
+        self.comp_sale = comp_sale
+        self.comp_construction = comp_construction
+       
+
+class Activité92(Base):
+    __tablename__ = 'activité92'
+    insee_code = Column(String, primary_key=True)
+    city = Column(String)
+    job = Column(Integer)
+    act_rate_15_24 = Column(Float)
+    act_rate_25_54 = Column(Float)
+    act_rate_55_64 = Column(Float)
+    portion_farmer = Column(Float)
+    portion_craft = Column(Float)
+    portion_executive = Column(Float)
+    portion_worker = Column(Float)
+    
+    
+
+    def __init__(self, insee_code, city, act_rate_15_24, act_rate_25_54, act_rate_55_64, portion_farmer, portion_craft, portion_executive, portion_worker):
+        self.insee_code = insee_code
+        self.city = city
+        self.act_rate_15_24 = act_rate_15_24
+        self.act_rate_25_54 = act_rate_25_54
+        self.act_rate_55_64 = act_rate_55_64
+        self.portion_farmer = portion_farmer
+        self.portion_craft = portion_craft
+        self.portion_executive = portion_executive
+        self.portion_worker = portion_worker
+        
         
 Base.metadata.create_all(engine)
+
 
 def build_db():
     outfile = open('static/newdata92.csv', 'r')
     reader = csv.DictReader(outfile, delimiter=';')
     for line in reader:
         print(line['Code'])
-        new_row = Activité92(
+        new_row = Data92(
             insee_code= line['Code'],
             city = line['Libellé'],
             nb_pharmacies = line['Nb Pharmacies et parfumerie'],
