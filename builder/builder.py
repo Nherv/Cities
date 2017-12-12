@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Dec 12 09:50:42 2017
-
-@author: Hervé
-"""
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -14,7 +8,7 @@ from sqlalchemy.orm import mapper
 import csv
 
 
-dump_database = "static/database.db"
+dump_database = "static/database92.db"
 
 
 def load_session():
